@@ -1,6 +1,6 @@
 "use client";
 
-import { RoomInterface, rooms } from "@/lib/rooms";
+import { RoomInterface} from "@/lib/rooms";
 import { Button } from "../ui/button";
 
 const RoomCard = ({ room }: { room: RoomInterface }) => {
