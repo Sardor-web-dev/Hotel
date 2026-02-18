@@ -3,9 +3,14 @@ import Header from "@/components/custom/Header";
 import { FaArrowDown } from "react-icons/fa";
 import { FaRegCalendarCheck } from "react-icons/fa";
 
-const HomeSection = () => {
+const HomeSection = ({bg}: {bg: string}) => {
   return (
-    <section className=" bg-[url('/home-bg.svg')] bg-cover h-screen w-full">
+    <section
+      className="bg-cover h-screen w-full"
+      style={{
+        backgroundImage: `url('/${bg}')`,
+      }}
+    >
       <div className="flex flex-col gap-20 max-w-[1250px] mx-auto">
         <Header />
 

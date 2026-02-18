@@ -8,7 +8,7 @@ const RoomCard = ({ room }: { room: RoomInterface }) => {
     <section className="mx-auto max-w-[1250px]">
       <div className="flex items-center justify-between gap-12">
         <div className="max-w-[400px] flex flex-col gap-4">
-          <h2 className="text-2xl font-semibold text-slate-800">
+          <h2 className="text-3xl font-bold text-slate-800">
             {room.title}
           </h2>
 
