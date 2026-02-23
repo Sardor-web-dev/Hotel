@@ -1,5 +1,4 @@
 import FacilityCard from "@/components/custom/FacilityCard";
-import Footer from "@/components/custom/Footer";
 import { facilities } from "@/lib/facilities";
 import React from "react";
 
