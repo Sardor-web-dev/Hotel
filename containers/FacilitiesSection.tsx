@@ -1,6 +1,7 @@
 import FacilityCard from "@/components/custom/FacilityCard";
 import { facilities } from "@/lib/facilities";
 import React from "react";
+import TestimonialSection from "./TestimonialSection";
 
 function FacilitiesSection() {
   return (
@@ -20,6 +21,7 @@ function FacilitiesSection() {
             <FacilityCard facility={facility} key={i} />
           ))}
         </div>
+        <TestimonialSection/>
       </div>
   );
 }
