@@ -2,7 +2,7 @@ import { RoomInterface } from "@/lib/roomtype";
 
 function RoomCard({ room }: { room: RoomInterface }) {
   return (
-    <div className="flex flex-col pb-5 gap-5 text-black border-1 border-black">
+    <div className="flex rounded-lg flex-col pb-5 gap-5 text-black border-1 border-black">
       <div
         className={`w-[1250px] min-h-[800px] relative bg-cover bg-center flex items-end justify-center`}
         style={{
