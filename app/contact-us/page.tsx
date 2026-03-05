@@ -1,7 +1,6 @@
 import ContactHeader from "@/components/custom/ContactHeader";
 import Footer from "@/components/custom/Footer";
 import ContactSection from "@/containers/ContactSection";
-import HomeSection from "@/containers/MainSection";
 
 export default function Contactpage() {
   return (
