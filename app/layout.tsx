@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import AnimationLayout from "@/components/AnimationLayout";
 
 const MontserratSans = Montserrat({
   variable: "--font-montserrat-sans",
@@ -9,7 +10,7 @@ const MontserratSans = Montserrat({
 
 export const metadata: Metadata = {
   title: "Shodlik Hotel",
-  description: "A  modern premium hotel website",
+  description: "A modern premium hotel website",
 };
 
 export default function RootLayout({
@@ -20,8 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${MontserratSans.variable} antialiased`}>
-        {/* <Header /> */}
-        {children}
+        <AnimationLayout>{children}</AnimationLayout>
       </body>
     </html>
   );
