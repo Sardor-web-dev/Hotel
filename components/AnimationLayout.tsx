@@ -4,6 +4,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { motion } from "motion/react";
+import "@/app/i18n";
 
 export default function AnimationLayout({
   children,

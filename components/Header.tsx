@@ -1,15 +1,19 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
-import Link from "next/link";
+import { motion, AnimatePresence } from "motion/react";
+import { Menu, X, Phone, Globe } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const pathname = usePathname();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language || "ru";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,10 +24,21 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Explore Rooms", path: "/rooms" },
-    { name: "About Us", path: "/about" },
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.rooms"), path: "/rooms" },
+    { name: t("nav.about"), path: "/about" },
   ];
+
+  const languages = [
+    { code: "ru", label: "RU" },
+    { code: "en", label: "EN" },
+    { code: "uz", label: "UZ" },
+  ];
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setIsLangOpen(false);
+  };
 
   return (
     <header
@@ -58,7 +73,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -70,6 +85,40 @@ export default function Header() {
               {link.name}
             </Link>
           ))}
+
+          {/* Language Switcher */}
+          <div className="relative">
+            <button
+              onClick={() => setIsLangOpen(!isLangOpen)}
+              className="flex items-center space-x-1 text-white hover:text-gold transition-colors uppercase tracking-widest text-[11px] font-medium"
+            >
+              <Globe size={14} />
+              <span>{currentLang.toUpperCase()}</span>
+            </button>
+            <AnimatePresence>
+              {isLangOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-full right-0 mt-4 bg-charcoal border border-white/10 rounded-xl overflow-hidden shadow-2xl min-w-[80px]"
+                >
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => changeLanguage(lang.code)}
+                      className={`w-full px-4 py-2 text-[10px] tracking-widest uppercase hover:bg-gold hover:text-charcoal transition-colors text-left ${
+                        i18n.language === lang.code ? "text-gold" : "text-white"
+                      }`}
+                    >
+                      {lang.label}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           <a
             href="tel:+123456789"
             className={`flex items-center space-x-2 bg-gold hover:bg-gold-light text-charcoal rounded-full transition-all duration-500 font-bold uppercase tracking-widest ${
@@ -77,21 +126,26 @@ export default function Header() {
             }`}
           >
             <Phone size={isScrolled ? 12 : 14} />
-            <span>Book Now</span>
+            <span>{t("nav.book")}</span>
           </a>
         </nav>
 
         {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? (
-            <X size={isScrolled ? 24 : 28} />
-          ) : (
-            <Menu size={isScrolled ? 24 : 28} />
-          )}
-        </button>
+        <div className="flex items-center space-x-4 md:hidden">
+          <button
+            onClick={() => setIsLangOpen(!isLangOpen)}
+            className="text-white hover:text-gold transition-colors uppercase tracking-widest text-[10px] font-medium"
+          >
+            {currentLang.toUpperCase()}
+          </button>
+          <button className="text-white p-2" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? (
+              <X size={isScrolled ? 24 : 28} />
+            ) : (
+              <Menu size={isScrolled ? 24 : 28} />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -120,11 +174,26 @@ export default function Header() {
                   {link.name}
                 </Link>
               ))}
+              <div className="flex space-x-4 pt-4 border-t border-white/10">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => changeLanguage(lang.code)}
+                    className={`text-xs tracking-widest uppercase ${
+                      i18n.language === lang.code
+                        ? "text-gold"
+                        : "text-white/60"
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
               <a
                 href="tel:+123456789"
                 className="bg-gold text-charcoal text-center py-4 rounded-2xl font-bold tracking-[0.3em] uppercase text-xs"
               >
-                Book Now
+                {t("nav.book")}
               </a>
             </nav>
           </motion.div>

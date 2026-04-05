@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   Coffee,
   Wifi,
@@ -12,15 +12,17 @@ import {
   Utensils,
   Star,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function ExploreRooms() {
+  const { t } = useTranslation();
+
   const rooms = [
     {
       id: 1,
       title: "Deluxe Garden Suite",
       description:
         "A spacious suite featuring a private garden terrace, perfect for those seeking tranquility and a connection with nature.",
-      price: "$450",
       size: "65 m²",
       image:
         "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=1200",
@@ -31,7 +33,6 @@ export default function ExploreRooms() {
       title: "Presidential Ocean Villa",
       description:
         "Our most exclusive offering. A multi-level villa with a private infinity pool, personal butler service, and panoramic ocean views.",
-      price: "$1,200",
       size: "240 m²",
       image:
         "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1200",
@@ -47,7 +48,6 @@ export default function ExploreRooms() {
       title: "Executive Skyline Loft",
       description:
         "Modern industrial design meets luxury. High ceilings and floor-to-ceiling windows offer breathtaking views of the city skyline.",
-      price: "$650",
       size: "85 m²",
       image:
         "https://images.unsplash.com/photo-1591088398332-8a77d399e80c?auto=format&fit=crop&q=80&w=1200",
@@ -58,7 +58,6 @@ export default function ExploreRooms() {
       title: "Royal Penthouse",
       description:
         "The ultimate urban retreat. Occupying the entire top floor, featuring a private spa, library, and 360-degree views.",
-      price: "$2,500",
       size: "450 m²",
       image:
         "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1200",
@@ -76,13 +75,11 @@ export default function ExploreRooms() {
           className="max-w-3xl"
         >
           <span className="text-gold tracking-[0.3em] uppercase text-xs mb-4 block">
-            Luxury Accommodations
+            {t("rooms.subtitle")}
           </span>
-          <h1 className="text-5xl md:text-7xl mb-8">Rooms & Suites</h1>
+          <h1 className="text-5xl md:text-7xl mb-8">{t("rooms.title")}</h1>
           <p className="text-charcoal/60 text-lg leading-relaxed">
-            Each of our rooms is a masterpiece of design, blending contemporary
-            elegance with timeless comfort. Discover your perfect sanctuary from
-            our curated selection of suites and villas.
+            {t("rooms.description")}
           </p>
         </motion.div>
       </section>
@@ -107,9 +104,6 @@ export default function ExploreRooms() {
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-6 right-6 bg-charcoal/80 backdrop-blur-md text-white px-6 py-2 rounded-full text-sm font-bold tracking-widest">
-                  {room.price} / Night
-                </div>
               </div>
             </div>
 
@@ -137,14 +131,14 @@ export default function ExploreRooms() {
 
               <div className="flex flex-wrap gap-4">
                 <button className="bg-charcoal text-white px-8 py-4 rounded-full hover:bg-gold hover:text-charcoal transition-all duration-300 font-bold tracking-widest uppercase text-xs flex items-center group">
-                  Book This Room
+                  {t("rooms.bookRoom")}
                   <ArrowRight
                     className="ml-2 group-hover:translate-x-1 transition-transform"
                     size={16}
                   />
                 </button>
                 <button className="border border-charcoal/20 hover:border-charcoal px-8 py-4 rounded-full transition-all duration-300 font-bold tracking-widest uppercase text-xs">
-                  View Details
+                  {t("rooms.viewDetails")}
                 </button>
               </div>
             </div>
@@ -157,9 +151,9 @@ export default function ExploreRooms() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-gold tracking-[0.3em] uppercase text-xs mb-4 block">
-              Standard Features
+              {t("rooms.standardFeatures")}
             </span>
-            <h2 className="text-4xl">Every Room Includes</h2>
+            <h2 className="text-4xl">{t("rooms.features")}</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {[
