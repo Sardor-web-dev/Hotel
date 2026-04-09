@@ -35,7 +35,7 @@ export default function AboutUs() {
             className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=1200"
+              src="/restaurant.jpg"
               alt="Hotel History"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
@@ -128,7 +128,7 @@ export default function AboutUs() {
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=1920"
+            src="/second-floor.jpg"
             alt="CTA Background"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"

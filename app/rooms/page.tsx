@@ -25,7 +25,7 @@ export default function ExploreRooms() {
         "A spacious suite featuring a private garden terrace, perfect for those seeking tranquility and a connection with nature.",
       size: "65 m²",
       image:
-        "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=1200",
+        "/double.jpg",
       amenities: ["King Bed", "Garden View", "Rain Shower", "Minibar"],
     },
     {
@@ -35,7 +35,7 @@ export default function ExploreRooms() {
         "Our most exclusive offering. A multi-level villa with a private infinity pool, personal butler service, and panoramic ocean views.",
       size: "240 m²",
       image:
-        "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1200",
+        "/triple1.jpg",
       amenities: [
         "Private Pool",
         "Butler Service",
@@ -50,7 +50,7 @@ export default function ExploreRooms() {
         "Modern industrial design meets luxury. High ceilings and floor-to-ceiling windows offer breathtaking views of the city skyline.",
       size: "85 m²",
       image:
-        "https://images.unsplash.com/photo-1591088398332-8a77d399e80c?auto=format&fit=crop&q=80&w=1200",
+        "/triple2.jpg",
       amenities: ["City View", "Work Station", "Smart Home", "Wine Cellar"],
     },
     {
@@ -60,7 +60,7 @@ export default function ExploreRooms() {
         "The ultimate urban retreat. Occupying the entire top floor, featuring a private spa, library, and 360-degree views.",
       size: "450 m²",
       image:
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1200",
+        "/4room.jpg",
       amenities: ["Private Spa", "Library", "Helipad Access", "Grand Piano"],
     },
   ];

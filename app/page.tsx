@@ -21,7 +21,7 @@ export default function Home() {
             loop
             playsInline
             className="w-full h-full object-cover scale-105"
-            poster="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1920"
+            poster="/main.jpg"
           >
             <source
               src="https://assets.mixkit.co/videos/preview/mixkit-luxury-hotel-room-with-a-view-of-the-city-4264-large.mp4"
@@ -148,7 +148,7 @@ export default function Home() {
             >
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200"
+                  src="/into.jpg"
                   alt="Hotel Interior"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
@@ -156,7 +156,7 @@ export default function Home() {
               </div>
               <div className="absolute -bottom-10 -left-10 w-64 h-64 rounded-2xl overflow-hidden shadow-2xl border-8 border-cream hidden md:block">
                 <img
-                  src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=600"
+                  src="/into2.jpg"
                   alt="Spa"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
@@ -190,19 +190,19 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Deluxe Suite",
+                title: "Three-Bedroom Suite",
                 image:
-                  "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=800",
+                  "/3room.jpg",
               },
               {
-                title: "Presidential Villa",
+                title: "Four-Bedroom Suite",
                 image:
-                  "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=800",
+                  "/4room.jpg",
               },
               {
-                title: "Ocean View Loft",
+                title: "Double Room Suite",
                 image:
-                  "https://images.unsplash.com/photo-1591088398332-8a77d399e80c?auto=format&fit=crop&q=80&w=800",
+                  "/2room.jpg",
               },
             ].map((room, index) => (
               <motion.div
